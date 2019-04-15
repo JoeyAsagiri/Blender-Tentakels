@@ -20,7 +20,7 @@ sensitivity = 0.0020
 mousePositionX = mouse.position[0] - gameWidth/2
 mousePositionY = mouse.position[1] - gameHeight/2
 
-#fix mouse drift on subpixel positions
+# fix mouse drift on subpixel positions
 if mousePositionX == -0.5:
     mousePositionX = 0
 if mousePositionY == -0.5:
@@ -29,14 +29,12 @@ if mousePositionY == -0.5:
 rotXAxis = (mousePositionX * directionXAxis) * sensitivity
 rotYAxis = (mousePositionY * directionYAxis) * sensitivity
 
-parent.applyRotation([0,0,rotXAxis])
+parent.applyRotation([0, 0, rotXAxis])
 
 # implement rotation cap on looking up and down
 orientation = owner.orientation
 
 if orientation[2].z > -0.90 and rotYAxis > 0:
-    owner.applyRotation([rotYAxis,0,0], True)
+    owner.applyRotation([rotYAxis, 0, 0], True)
 if orientation[2].z < 0.90 and rotYAxis < 0:
-    owner.applyRotation([rotYAxis,0,0], True)
-
-    
+    owner.applyRotation([rotYAxis, 0, 0], True)
